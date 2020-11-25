@@ -1,7 +1,7 @@
 package com.ferescalona.minesweeperapi;
 
 import com.ferescalona.minesweeperapi.game.Cell;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,14 +19,14 @@ public class TestController {
         return "It works!";
     }
 
-    @GetMapping("/test")
+    @GetMapping(value = "/test", produces = MediaType.TEXT_PLAIN_VALUE)
     public String getMethodName() {
         System.out.println(cell.isDiscovered());
 
         return "Tu mamá! Mamagüevazo "+cell.isDiscovered();
     }
 
-    @GetMapping("/health")
+    @GetMapping("/healt")
     public String health() {
         return "Tu health!";
     }
